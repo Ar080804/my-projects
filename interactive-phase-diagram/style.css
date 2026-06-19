@@ -1,0 +1,342 @@
+:root {
+            --bg: #f5f7fa;
+            --surface: #ffffff;
+            --surface2: #f0f2f6;
+            --border: #d0d7de;
+            --accent-liq: #c0392b;
+            --accent-sol: #1a5fa8;
+            --accent-slv: #1a7a4a;
+            --accent-eut: #7c3aed;
+            --accent-warn: #d97706;
+            --text-primary: #1a1f2e;
+            --text-secondary: #4a5568;
+            --text-muted: #9aa5b4;
+            --alpha-color: #e05252;
+            --beta-color: #3b6fd4;
+            --liquid-color: #0284c7;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Space Mono', monospace;
+            background: var(--bg);
+            color: var(--text-primary);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: var(--text-secondary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 18px;
+            max-width: 1350px;
+            margin: 0 auto;
+        }
+
+        .panel {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .section-title {
+            font-size: 9px;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .slider-group label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+
+        .slider-group label span {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        input[type=range] {
+            width: 100%;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 4px;
+            border-radius: 2px;
+            background: var(--border);
+            outline: none;
+            cursor: pointer;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            border: 2px solid var(--bg);
+            cursor: pointer;
+        }
+
+        .results {
+            background: var(--surface2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            font-size: 12px;
+            line-height: 1.9;
+        }
+
+        .results .phase-name {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .results .data-row {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+        }
+
+        .results .data-row span:last-child {
+            color: var(--text-primary);
+        }
+
+        .boundary-tag {
+            display: inline-block;
+            background: #ede9fe;
+            color: var(--accent-eut);
+            border: 1px solid var(--accent-eut);
+            border-radius: 4px;
+            padding: 2px 8px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        .boundary-tag.liq {
+            background: #fef2f2;
+            color: var(--accent-liq);
+            border-color: var(--accent-liq);
+        }
+
+        .boundary-tag.sol {
+            background: #eff6ff;
+            color: var(--accent-sol);
+            border-color: var(--accent-sol);
+        }
+
+        .boundary-tag.slv {
+            background: #f0fdf4;
+            color: var(--accent-slv);
+            border-color: var(--accent-slv);
+        }
+
+        .boundary-tag.eut {
+            background: #ede9fe;
+            color: var(--accent-eut);
+            border-color: var(--accent-eut);
+        }
+
+        .boundary-tag.eutp {
+            background: #fffbeb;
+            color: var(--accent-warn);
+            border-color: var(--accent-warn);
+        }
+
+        canvas {
+            width: 100%;
+            height: 190px;
+            border-radius: 8px;
+            background: #f8f9fb;
+            border: 1px solid var(--border);
+            display: block;
+        }
+
+        #micro-legend {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .leg-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            color: var(--text-secondary);
+        }
+
+        .leg-swatch {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        /* SVG diagram */
+        .diagram-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 15px;
+            position: relative;
+        }
+
+        .hint {
+            position: absolute;
+            top: 18px;
+            right: 22px;
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        svg {
+            width: 100%;
+            height: 580px;
+            cursor: crosshair;
+            border-radius: 6px;
+            background: #ffffff;
+            display: block;
+            border: 1px solid #e2e8f0;
+        }
+
+        .axis {
+            stroke: #475569;
+            stroke-width: 2;
+        }
+
+        .grid {
+            stroke: #e8ecf1;
+            stroke-width: 1;
+            stroke-dasharray: 3 4;
+        }
+
+        .tick-text {
+            font-size: 17px;
+            fill: #64748b;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .axis-label {
+            font-size: 18px;
+            fill: #1a1f2e;
+            font-family: 'Space Mono', monospace;
+            font-weight: 700;
+        }
+
+        .phase-label {
+            font-size: 26px;
+            fill: #1e293b;
+            font-style: italic;
+            font-family: 'Crimson Pro', serif;
+            pointer-events: none;
+            font-weight: 600;
+        }
+
+        .line-liq {
+            stroke: var(--accent-liq);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linejoin: round;
+            stroke-linecap: round;
+        }
+
+        .line-sol {
+            stroke: var(--accent-sol);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .line-eut {
+            stroke: var(--accent-eut);
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .line-slv {
+            stroke: var(--accent-slv);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        /* Highlight overlays (drawn by JS) */
+        .highlight-liq {
+            stroke: var(--accent-liq);
+            stroke-width: 8;
+            fill: none;
+            stroke-linecap: round;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .highlight-sol {
+            stroke: var(--accent-sol);
+            stroke-width: 8;
+            fill: none;
+            stroke-linecap: round;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .highlight-slv {
+            stroke: var(--accent-slv);
+            stroke-width: 8;
+            fill: none;
+            stroke-linecap: round;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .highlight-eut {
+            stroke: var(--accent-eut);
+            stroke-width: 8;
+            fill: none;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .highlight-eutp {
+            stroke: var(--accent-warn);
+            stroke-width: 0;
+            fill: var(--accent-warn);
+            opacity: 0.35;
+            pointer-events: none;
+        }

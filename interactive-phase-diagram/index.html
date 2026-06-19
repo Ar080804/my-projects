@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cu–Ag Interactive Phase Oracle</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Crimson+Pro:ital,wght@0,400;0,600;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div style="max-width:1350px; margin:0 auto;">
+        <h1>Cu–Ag Binary Phase Oracle</h1>
+        <p class="subtitle">Interactive Phase Diagram · MET-QUEST '26</p>
+        <div class="layout">
+            <!-- Left panel -->
+            <div class="panel">
+                <div>
+                    <div class="section-title">Input State</div>
+                    <div class="slider-group">
+                        <label>Composition (wt% Ag) <span id="comp-val">50.0</span></label>
+                        <input type="range" id="comp-slider" min="0" max="100" step="0.1" value="50">
+                    </div>
+                    <div class="slider-group" style="margin-top:14px">
+                        <label>Temperature (°C) <span id="temp-val">900</span></label>
+                        <input type="range" id="temp-slider" min="220" max="1180" step="1" value="900">
+                    </div>
+                </div>
+
+                <div>
+                    <div class="section-title">Thermodynamics</div>
+                    <div class="results">
+                        <div class="phase-name" id="phase-name">—</div>
+                        <div class="data-row"><span>Composition</span><span id="r-comp">—</span></div>
+                        <div class="data-row"><span>Temperature</span><span id="r-temp">—</span></div>
+                        <div class="data-row" id="r-frac-row" style="display:none"><span id="r-frac-label">—</span><span
+                                id="r-frac-val">—</span></div>
+                        <div class="data-row" id="r-cl-row" style="display:none"><span>C<sub>L</sub></span><span
+                                id="r-cl">—</span></div>
+                        <div class="data-row" id="r-cs-row" style="display:none"><span>C<sub>S</sub></span><span
+                                id="r-cs">—</span></div>
+                        <div id="boundary-tag-area"></div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="section-title">Microstructure</div>
+                    <div id="micro-legend"></div>
+                    <canvas id="microCanvas" width="260" height="190"></canvas>
+                </div>
+
+                <div
+                    style="background:var(--surface2);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:10px;line-height:1.8;color:var(--text-muted);">
+                    <div
+                        style="color:var(--text-secondary);font-weight:700;margin-bottom:6px;letter-spacing:1px;font-size:9px;text-transform:uppercase;">
+                        Boundary Lines</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px;">
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div style="width:22px;height:3px;background:var(--accent-liq);border-radius:2px;"></div>
+                            Liquidus
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div style="width:22px;height:3px;background:var(--accent-sol);border-radius:2px;"></div>
+                            Solidus
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div style="width:22px;height:3px;background:var(--accent-slv);border-radius:2px;"></div>
+                            Solvus
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div style="width:22px;height:3px;background:var(--accent-eut);border-radius:2px;"></div>
+                            Eutectic
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div style="width:22px;height:3px;background:#d97706;border-radius:2px;"></div> Tie-line
+                        </div>
+                    </div>
+                    <div
+                        style="color:var(--text-secondary);font-weight:700;margin-bottom:6px;letter-spacing:1px;font-size:9px;text-transform:uppercase;">
+                        Phase Regions</div>
+                    <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div
+                                style="width:14px;height:14px;background:rgba(220,38,38,0.18);border:1px solid var(--accent-liq);border-radius:2px;">
+                            </div> Liquid
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div
+                                style="width:14px;height:14px;background:rgba(220,38,38,0.15);border:1px solid var(--accent-liq);border-radius:2px;">
+                            </div> α
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div
+                                style="width:14px;height:14px;background:rgba(37,99,235,0.15);border:1px solid var(--accent-sol);border-radius:2px;">
+                            </div> β
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div
+                                style="width:14px;height:14px;background:rgba(109,40,217,0.12);border:1px solid var(--accent-eut);border-radius:2px;">
+                            </div> α+β
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div
+                                style="width:14px;height:14px;background:rgba(251,146,60,0.18);border:1px solid #d97706;border-radius:2px;">
+                            </div> α+L
+                        </div>
+                        <div style="display:flex;align-items:center;gap:5px;">
+                            <div
+                                style="width:14px;height:14px;background:rgba(14,165,233,0.18);border:1px solid var(--accent-sol);border-radius:2px;">
+                            </div> β+L
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right diagram -->
+            <div class="diagram-card">
+                <span class="hint">🖱 CLICK TO SELECT POINT</span>
+                <svg viewBox="-130 -40 1180 1000" id="diagram"></svg>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

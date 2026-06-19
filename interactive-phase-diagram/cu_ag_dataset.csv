@@ -1,0 +1,167 @@
+# Cu-Ag Binary Phase Diagram Dataset
+# All temperatures are in degrees Celsius (raw digitized values, before the -80 shift applied in script.js)
+# Compositions are in wt% Ag
+# Source: Digitized from the Cu-Ag eutectic binary phase diagram
+# Eutectic point: 71.9 wt% Ag at 767 °C (after shift), raw 847 °C
+# Temperature shift S = 80 applied in code: T_plot = T_raw - 80
+
+# ── LIQUIDUS ────────────────────────────────────────────────────────────────────
+# Spans full composition range. Non-monotone in T (dips to eutectic minimum, rises on Ag side).
+# Left branch: Cu-rich (0–71.9 wt% Ag), right branch: Ag-rich (71.9–100 wt% Ag)
+
+curve,wt_pct_Ag,T_raw_C,T_plot_C
+liquidus,0.535,1196.1,1116.1
+liquidus,2.944,1186.3,1106.3
+liquidus,5.218,1176.5,1096.5
+liquidus,7.894,1162.7,1082.7
+liquidus,10.302,1149.0,1069.0
+liquidus,12.844,1137.3,1057.3
+liquidus,15.252,1125.5,1045.5
+liquidus,17.392,1115.7,1035.7
+liquidus,19.800,1103.9,1023.9
+liquidus,21.807,1094.1,1014.1
+liquidus,23.814,1084.3,1004.3
+liquidus,25.954,1074.5,994.5
+liquidus,28.095,1062.7,982.7
+liquidus,30.101,1051.0,971.0
+liquidus,32.108,1043.1,963.1
+liquidus,34.249,1033.3,953.3
+liquidus,36.255,1023.5,943.5
+liquidus,38.396,1011.8,931.8
+liquidus,40.536,1002.0,922.0
+liquidus,42.543,990.2,910.2
+liquidus,44.550,982.4,902.4
+liquidus,46.289,972.5,892.5
+liquidus,48.296,964.7,884.7
+liquidus,50.035,954.9,874.9
+liquidus,51.908,947.1,867.1
+liquidus,53.647,939.2,859.2
+liquidus,55.520,927.5,847.5
+liquidus,57.393,919.6,839.6
+liquidus,59.132,911.8,831.8
+liquidus,61.005,902.0,822.0
+liquidus,63.012,892.2,812.2
+liquidus,64.617,886.3,806.3
+liquidus,66.222,876.5,796.5
+liquidus,68.229,866.7,786.7
+liquidus,69.834,858.8,778.8
+liquidus,71.841,849.0,769.0
+liquidus,74.118,854.9,774.9
+liquidus,75.860,866.7,786.7
+liquidus,77.333,874.5,794.5
+liquidus,79.075,884.3,804.3
+liquidus,80.817,896.1,816.1
+liquidus,82.425,909.8,829.8
+liquidus,84.033,919.6,839.6
+liquidus,85.908,931.4,851.4
+liquidus,87.650,943.1,863.1
+liquidus,89.258,956.9,876.9
+liquidus,91.000,966.7,886.7
+liquidus,92.072,976.5,896.5
+liquidus,93.814,988.2,908.2
+liquidus,95.557,1003.9,923.9
+liquidus,97.031,1017.6,937.6
+liquidus,98.238,1031.4,951.4
+liquidus,99.712,1047.1,967.1
+
+# ── Cu-RICH SOLIDUS (α solidus) ─────────────────────────────────────────────────
+# Terminates at eutectic isotherm (~8 wt% Ag, 767 °C plotted)
+
+curve,wt_pct_Ag,T_raw_C,T_plot_C
+solidus_cu,0.536,1198.0,1118.0
+solidus_cu,1.604,1180.4,1100.4
+solidus_cu,2.406,1168.6,1088.6
+solidus_cu,3.341,1151.0,1071.0
+solidus_cu,4.275,1133.3,1053.3
+solidus_cu,5.076,1115.7,1035.7
+solidus_cu,5.877,1094.1,1014.1
+solidus_cu,6.410,1076.5,996.5
+solidus_cu,6.942,1052.9,972.9
+solidus_cu,7.342,1037.3,957.3
+solidus_cu,7.740,1015.7,935.7
+solidus_cu,8.005,994.1,914.1
+solidus_cu,8.270,970.6,890.6
+solidus_cu,8.401,949.0,869.0
+solidus_cu,8.397,923.5,843.5
+solidus_cu,8.394,901.9,821.9
+solidus_cu,8.391,880.4,800.4
+solidus_cu,7.988,862.7,782.7
+solidus_cu,7.985,845.1,765.1
+
+# ── Ag-RICH SOLIDUS (β solidus) ─────────────────────────────────────────────────
+# Terminates at eutectic isotherm (~91.7 wt% Ag, 767 °C plotted)
+
+curve,wt_pct_Ag,T_raw_C,T_plot_C
+solidus_ag,91.788,849.0,769.0
+solidus_ag,92.593,866.7,786.7
+solidus_ag,93.399,884.3,804.3
+solidus_ag,94.071,903.9,823.9
+solidus_ag,94.876,921.6,841.6
+solidus_ag,95.548,939.2,859.2
+solidus_ag,96.353,954.9,874.9
+solidus_ag,97.159,974.5,894.5
+solidus_ag,97.697,992.2,912.2
+solidus_ag,98.368,1003.9,923.9
+solidus_ag,98.771,1013.7,933.7
+solidus_ag,99.981,1051.0,971.0
+
+# ── Cu-RICH SOLVUS (α/α+β boundary) ────────────────────────────────────────────
+# Raw data; in code these are extrapolated to 0 wt% Ag at 220 °C (display minimum).
+
+curve,wt_pct_Ag,T_raw_C,T_plot_C
+solvus_cu,7.851,841.2,761.2
+solvus_cu,7.180,827.5,747.5
+solvus_cu,6.508,807.8,727.8
+solvus_cu,5.836,788.2,708.2
+solvus_cu,5.431,766.7,686.7
+solvus_cu,4.893,747.1,667.1
+solvus_cu,4.489,729.4,649.4
+solvus_cu,4.085,709.8,629.8
+solvus_cu,3.681,692.2,612.2
+solvus_cu,3.277,674.5,594.5
+solvus_cu,3.007,654.9,574.9
+solvus_cu,2.736,637.3,557.3
+solvus_cu,2.332,619.6,539.6
+solvus_cu,2.196,602.0,522.0
+solvus_cu,1.926,580.4,500.4
+solvus_cu,1.655,560.8,480.8
+solvus_cu,1.385,539.2,459.2
+solvus_cu,1.248,517.6,437.6
+solvus_cu,0.977,496.1,416.1
+solvus_cu,0.840,474.5,394.5
+solvus_cu,0.570,454.9,374.9
+
+# ── Ag-RICH SOLVUS (β/α+β boundary) ────────────────────────────────────────────
+# Raw data; in code these are extrapolated to 100 wt% Ag at 220 °C (display minimum).
+
+curve,wt_pct_Ag,T_raw_C,T_plot_C
+solvus_ag,91.787,845.1,765.1
+solvus_ag,92.320,827.5,747.5
+solvus_ag,92.854,811.8,731.8
+solvus_ag,93.119,796.1,716.1
+solvus_ag,93.786,780.4,700.4
+solvus_ag,94.052,762.7,682.7
+solvus_ag,94.451,745.1,665.1
+solvus_ag,94.851,729.4,649.4
+solvus_ag,95.249,709.8,629.8
+solvus_ag,95.515,692.2,612.2
+solvus_ag,95.914,674.5,594.5
+solvus_ag,96.313,656.9,576.9
+solvus_ag,96.578,637.3,557.3
+solvus_ag,96.843,615.7,535.7
+solvus_ag,97.108,594.1,514.1
+solvus_ag,97.507,572.5,492.5
+solvus_ag,97.639,558.8,478.8
+solvus_ag,97.904,539.2,459.2
+solvus_ag,98.169,517.6,437.6
+
+# ── INVARIANT POINTS & BOUNDARIES ───────────────────────────────────────────────
+# Eutectic isotherm: horizontal line at T_raw = 847 °C (T_plot = 767 °C)
+#   from C_alpha_max = 8.0 wt% Ag  to  C_beta_min = 91.7 wt% Ag
+
+feature,description,wt_pct_Ag,T_plot_C
+eutectic_point,Eutectic composition and temperature,71.9,767
+eutectic_isotherm_left,Left terminus of eutectic isotherm (max alpha solubility),8.0,767
+eutectic_isotherm_right,Right terminus of eutectic isotherm (min beta solubility),91.7,767
+Cu_melting_point,Pure copper melting point (0 wt% Ag),0,1083
+Ag_melting_point,Pure silver melting point (100 wt% Ag),0,961
