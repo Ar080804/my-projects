@@ -33,6 +33,12 @@ Welcome to my central project repository! I am passionate about full-stack devel
 * Designed a **compatibility-based matching algorithm** that ranks optimal flatmate and property matches using user preferences and location data.
 * Integrated **Socket.io** for real-time bidirectional communication, enabling live notifications and instant messaging.
 
+### 🏢 Roommate Finder REST API & React Frontend
+> **Node.js, Express, PostgreSQL, React, Vite** | *2026*
+* Built a complete RESTful API using **Express and PostgreSQL** for managing property listings, user profiles, and compatibility scoring.
+* Implemented **JWT-based authentication** with secure role-based access control (Tenants vs. Landlords).
+* Engineered a sleek, glassmorphic **React frontend** utilizing modern Context API for state management and real-time database filtering.
+
 ### 🧪 Project Isotherm: Interactive Ag-Mg Binary Phase Oracle
 > **C, C++, Python, SQL** | *May 2026*
 * Architected a **web-based Interactive Binary Phase Diagram** tool for the Ag-Mg system, digitizing phase boundaries into piecewise-linear coordinate arrays.
