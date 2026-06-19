@@ -1,0 +1,6 @@
+[submodule "blockchain"]
+	path = blockchain
+	url = https://github.com/BlockMasterACASummerProject2025/assignment-3-Ar080804.git
+[submodule "roomble"]
+	path = roomble
+	url = https://github.com/Shlok-Jain/Roomble.git
